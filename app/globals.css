@@ -1,26 +1,90 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/* ===== TAILWIND V4 DESIGN TOKEN SYSTEM ===== */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* Colors */
+  --color-navy: #0A192F;
+  --color-orange: #FF6B00;
+  --color-orange-hover: #E05A00;
+  --color-offwhite: #F7F8FA;
+  --color-bodytext: #1A1A2E;
+  --color-muted: #6B7280;
+  --color-border-light: #E5E7EB;
+  --color-error: #EF4444;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* Font Family */
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Font Sizes */
+  --font-size-hero: 3.5rem;
+  --font-size-hero--line-height: 1.2;
+  --font-size-hero-sm: 2.25rem;
+  --font-size-hero-sm--line-height: 1.2;
+  --font-size-h2: 2.25rem;
+  --font-size-h2--line-height: 1.2;
+  --font-size-h2-sm: 1.75rem;
+  --font-size-h2-sm--line-height: 1.2;
+  --font-size-h3: 1.25rem;
+  --font-size-h3--line-height: 1.4;
+  --font-size-body: 1rem;
+  --font-size-body--line-height: 1.7;
+  --font-size-label: 0.8125rem;
+  --font-size-label--line-height: 1.5;
+  --font-size-micro: 0.75rem;
+  --font-size-micro--line-height: 1.5;
+
+  /* Spacing */
+  --spacing-nav-h: 52px;
+  --spacing-nav-h-scrolled: 44px;
+  --spacing-section-y: 80px;
+  --spacing-section-y-lg: 100px;
+  --spacing-form-pad: 40px;
+
+  /* Border Radius */
+  --radius-card: 4px;
+  --radius-form: 14px;
+  --radius-pill: 9999px;
+  --radius-btn: 6px;
+
+  /* Animations */
+  --animate-slide-up: slideUp 300ms ease forwards;
+  --animate-bounce-y: bounceY 1.5s ease-in-out infinite;
+
+  @keyframes slideUp {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes bounceY {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(6px);
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ===== CUSTOM CSS RULES ===== */
+
+/* Rule 1 — Smooth scroll with nav offset */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 52px;
+}
+
+/* Rule 2 — Nav height transition */
+.nav-inner {
+  transition: padding 200ms ease;
+}
+
+/* Rule 3 — Portfolio image filter transition */
+.portfolio-item {
+  transition: opacity 200ms ease, transform 200ms ease;
 }
