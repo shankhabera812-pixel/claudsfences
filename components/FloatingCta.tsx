@@ -54,7 +54,7 @@ export default function FloatingCta() {
         tabIndex={shouldShow ? 0 : -1}
         className="
           flex items-center justify-center
-          bg-orange hover:bg-orange-hover text-white font-bold
+          bg-accent hover:bg-accent-hover text-white font-bold
           rounded-pill h-[52px] px-8 text-[15px] no-underline
           transition-colors duration-150 shadow-lg
         "

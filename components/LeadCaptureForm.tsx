@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { CheckCircle, AlertCircle, Lock, Loader2 } from 'lucide-react';
-import OrangeButton from '@/components/ui/OrangeButton';
+import AccentButton from '@/components/ui/AccentButton';
 
 type FormData = {
   name: string;
@@ -128,38 +128,44 @@ export default function LeadCaptureForm() {
 
   return (
     <section id="contact" className="bg-navy py-20">
+      <p className="text-white/70 text-[15px] text-center max-w-[520px] mx-auto mb-8 px-6">
+        Every fence we&apos;ve built in the photos above started with a single
+        conversation. If you&apos;re thinking about a new fence — or just trying
+        to figure out what it might cost — that conversation starts here.
+      </p>
       {/* Section Header */}
       <div className="text-center mb-10 px-6">
         <h2 className="text-[clamp(1.75rem,4vw,2.25rem)] font-semibold text-white mb-3">
-          Request Your Free Estimate
+          Tell us about your fence.
         </h2>
         <p className="text-white/80 text-[16px] max-w-[500px] mx-auto">
-          Fill out the form below and we&apos;ll get back to you within 24
-          hours. No commitment required.
+          Fill out this form and Claudinei or Raimundo will reach out directly — usually
+          the same day. No middlemen, no call centers. Just a straightforward conversation
+          about what you need.
         </p>
       </div>
 
       {/* Form Card */}
-      <div className="bg-white rounded-form p-8 sm:p-12 max-w-[600px] w-full mx-auto shadow-[0_4px_24px_rgba(0,0,0,0.12)]">
+      <div className="bg-white rounded-form p-8 sm:p-12 max-w-[600px] w-full mx-auto border border-white/10">
         {status === 'success' ? (
           /* ===== SUCCESS STATE ===== */
           <div className="flex flex-col items-center text-center gap-4 py-8">
-            <CheckCircle size={56} color="#FF6B00" />
+            <CheckCircle size={56} color="var(--color-accent)" />
             <h3
               ref={successRef}
               tabIndex={-1}
               className="text-[22px] font-semibold text-navy outline-none"
             >
-              We&apos;ve received your request!
+              We&apos;ve got your request.
             </h3>
             <p className="text-[15px] text-muted max-w-md">
-              Someone from our team will reach out to you within 24 hours —
-              usually the same day. Thank you for considering Claud&apos;s
+              Claudinei or Raimundo will be in touch shortly — usually the same day. We
+              genuinely look forward to helping you. Thank you for choosing Claud&apos;s
               Fences.
             </p>
             <a
               href="tel:+17743862977"
-              className="text-navy text-[14px] underline hover:text-orange transition-colors duration-150"
+              className="text-navy text-[14px] underline hover:text-accent transition-colors duration-150"
             >
               Want to reach us directly? Call (774) 386-2977
             </a>
@@ -359,7 +365,7 @@ export default function LeadCaptureForm() {
             </div>
 
             {/* Submit Button */}
-            <OrangeButton
+            <AccentButton
               type="submit"
               size="lg"
               loading={status === 'loading'}
@@ -368,12 +374,8 @@ export default function LeadCaptureForm() {
               className="w-full"
             >
               Send My Free Estimate Request
-            </OrangeButton>
+            </AccentButton>
 
-            {/* Response Time Micro-copy */}
-            <p className="text-[12px] text-muted text-center mt-3">
-              We respond within 24 hours. Same-day response often available.
-            </p>
           </form>
         )}
       </div>

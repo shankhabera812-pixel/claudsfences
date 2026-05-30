@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { Star, ChevronDown } from 'lucide-react';
-import OrangeButton from '@/components/ui/OrangeButton';
+import AccentButton from '@/components/ui/AccentButton';
+import HeroMicroForm from '@/components/HeroMicroForm';
 
 export default function HeroSection() {
   return (
@@ -40,12 +41,12 @@ export default function HeroSection() {
         <div className="md:max-w-[55%] text-center md:text-left">
           {/* H1 — Primary headline */}
           <h1 className="text-[clamp(2.25rem,5vw,3.75rem)] font-bold text-white leading-[1.1] mb-5">
-            Professional Fence Installation in Shrewsbury, MA
+            Fence Installation You Can Trust — Shrewsbury, MA
           </h1>
 
           {/* Sub-headline */}
           <p className="text-[16px] md:text-[20px] text-white font-normal mb-4">
-            Wood · Vinyl · Chain Link · Aluminum — Free Estimates Available 24/7
+            Wood, vinyl, chain link, and aluminum fencing across Central Massachusetts — installed right, the first time.
           </p>
 
           {/* Trust micro-line with star icons */}
@@ -55,8 +56,8 @@ export default function HeroSection() {
                 <Star
                   key={i}
                   size={13}
-                  fill="#FF6B00"
-                  color="#FF6B00"
+                  fill="var(--color-accent)"
+                  color="var(--color-accent)"
                 />
               ))}
             </span>
@@ -65,27 +66,7 @@ export default function HeroSection() {
             </span>
           </p>
 
-          {/* CTA Group */}
-          <div className="flex flex-col sm:flex-row gap-4 items-center sm:items-center justify-center md:justify-start">
-            <OrangeButton size="lg" href="#contact" className="w-full sm:w-auto">
-              Get Your Free Estimate
-            </OrangeButton>
-
-            <a
-              href="tel:+17743862977"
-              className="
-                inline-flex items-center justify-center
-                border-2 border-white text-white
-                rounded-pill h-[56px] px-7
-                text-[15px] font-semibold
-                no-underline
-                hover:bg-white/10 transition-colors duration-150
-                w-full sm:w-auto text-center
-              "
-            >
-              (774) 386-2977 — Call Now
-            </a>
-          </div>
+          <HeroMicroForm />
         </div>
       </div>
 

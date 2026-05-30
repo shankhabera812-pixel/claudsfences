@@ -1,7 +1,7 @@
 import React from 'react';
 import { Loader2 } from 'lucide-react';
 
-interface OrangeButtonProps {
+interface AccentButtonProps {
   href?: string;
   size: 'sm' | 'md' | 'lg';
   children: React.ReactNode;
@@ -25,7 +25,7 @@ const sizeClasses = {
   lg: 'h-[56px] px-8 text-[16px] min-w-[220px]',
 };
 
-export default function OrangeButton({
+export default function AccentButton({
   href,
   size,
   children,
@@ -33,19 +33,19 @@ export default function OrangeButton({
   type = 'button',
   disabled = false,
   loading = false,
-  rounded = 'pill',
+  rounded = 'btn',
   className = '',
-}: OrangeButtonProps) {
+}: AccentButtonProps) {
   const isDisabled = disabled || loading;
 
   const baseClasses = `
     inline-flex items-center justify-center gap-2
-    bg-orange hover:bg-orange-hover
-    text-white font-bold
+    bg-accent hover:bg-accent-hover
+    text-white font-bold tracking-[0.03em]
     ${rounded === 'pill' ? 'rounded-pill' : 'rounded-btn'}
     transition-colors duration-150 ease-in-out
     active:scale-[0.98]
-    focus-visible:outline-2 focus-visible:outline-orange focus-visible:outline-offset-2
+    focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2
     cursor-pointer border-none
     ${sizeClasses[size]}
     ${isDisabled ? 'opacity-60 cursor-not-allowed pointer-events-none' : ''}

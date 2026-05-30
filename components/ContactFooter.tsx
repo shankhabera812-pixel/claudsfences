@@ -12,7 +12,7 @@ export default function ContactFooter() {
             <p className="text-white/65 text-[14px] mb-1">Shrewsbury, MA</p>
             <a
               href="tel:+17743862977"
-              className="block text-white text-[14px] hover:text-orange transition-colors duration-150 mb-1"
+              className="block text-white text-[14px] hover:text-accent transition-colors duration-150 mb-1"
             >
               (774) 386-2977
             </a>
@@ -30,19 +30,19 @@ export default function ContactFooter() {
             <div className="flex flex-wrap gap-x-6 gap-y-2 mb-4 md:justify-end">
               <a
                 href="#trust"
-                className="text-white text-[14px] no-underline hover:text-orange transition-colors duration-150"
+                className="text-white text-[14px] no-underline hover:text-accent transition-colors duration-150"
               >
                 About
               </a>
               <a
                 href="#services"
-                className="text-white text-[14px] no-underline hover:text-orange transition-colors duration-150"
+                className="text-white text-[14px] no-underline hover:text-accent transition-colors duration-150"
               >
                 Services
               </a>
               <a
                 href="#portfolio"
-                className="text-white text-[14px] no-underline hover:text-orange transition-colors duration-150"
+                className="text-white text-[14px] no-underline hover:text-accent transition-colors duration-150"
               >
                 Our Work
               </a>
@@ -56,7 +56,7 @@ export default function ContactFooter() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Claud's Fences on Facebook"
-                className="text-white hover:text-orange transition-colors duration-150"
+                className="text-white hover:text-accent transition-colors duration-150"
               >
                 {/* Facebook icon — simple SVG */}
                 <svg

@@ -4,8 +4,15 @@
 @theme inline {
   /* Colors */
   --color-navy: #0A192F;
-  --color-orange: #FF6B00;
-  --color-orange-hover: #E05A00;
+  /* PRIMARY ACCENT — Craftsman Amber-Gold */
+  --color-accent: #B07D40;
+  --color-accent-hover: #8F6330;
+
+  /* WARM TINT — Subtle light accent background */
+  --color-accent-light: #F5EDD8;
+
+  /* SIGNAL — Reserved for phone number links and error-adjacent attention ONLY */
+  --color-signal: #D4540A;
   --color-offwhite: #F7F8FA;
   --color-bodytext: #1A1A2E;
   --color-muted: #6B7280;
@@ -42,9 +49,9 @@
 
   /* Border Radius */
   --radius-card: 4px;
-  --radius-form: 14px;
+  --radius-form: 6px;
   --radius-pill: 9999px;
-  --radius-btn: 6px;
+  --radius-btn: 4px;
 
   /* Animations */
   --animate-slide-up: slideUp 300ms ease forwards;

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import OrangeButton from '@/components/ui/OrangeButton';
+import AccentButton from '@/components/ui/AccentButton';
 
 const navLinks = [
   { label: 'About', href: '#trust' },
@@ -52,7 +52,7 @@ export default function NavBar() {
             <a
               key={link.href}
               href={link.href}
-              className="text-white text-[15px] font-normal no-underline hover:text-orange transition-colors duration-150"
+              className="text-white text-[15px] font-normal no-underline hover:text-accent transition-colors duration-150"
             >
               {link.label}
             </a>
@@ -64,15 +64,15 @@ export default function NavBar() {
           {/* Phone — hidden on very small screens */}
           <a
             href="tel:+17743862977"
-            className="hidden sm:inline-block text-white text-[14px] hover:text-orange transition-colors duration-150"
+            className="hidden sm:inline-block text-white text-[14px] hover:text-accent transition-colors duration-150"
           >
             (774) 386-2977
           </a>
 
           {/* CTA Button */}
-          <OrangeButton size="sm" href="#contact">
+          <AccentButton size="sm" href="#contact">
             Get Free Estimate
-          </OrangeButton>
+          </AccentButton>
 
           {/* Hamburger — mobile only */}
           <button
@@ -101,7 +101,7 @@ export default function NavBar() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="text-white text-[16px] py-2 hover:text-orange transition-colors duration-150"
+                className="text-white text-[16px] py-2 hover:text-accent transition-colors duration-150"
               >
                 {link.label}
               </a>

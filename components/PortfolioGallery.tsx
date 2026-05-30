@@ -52,7 +52,7 @@ export default function PortfolioGallery() {
                 transition-all duration-150 cursor-pointer
                 ${
                   activeFilter === filter
-                    ? 'bg-orange text-white border-transparent'
+                    ? 'bg-accent text-white border-transparent'
                     : 'bg-transparent text-white border-white/70 hover:bg-white/10'
                 }
               `}
@@ -89,27 +89,6 @@ export default function PortfolioGallery() {
             </div>
           ))}
 
-          {/* Embedded CTA Tile — spans full grid width */}
-          <div className="col-span-1 md:col-span-2 lg:col-span-3 bg-orange rounded-card py-12 px-10 text-center flex flex-col items-center gap-4">
-            <p className="text-white text-[22px] font-bold">
-              Inspired by what you see?
-            </p>
-            <p className="text-white text-[16px]">
-              Get a free estimate for your property — no commitment, no
-              pressure.
-            </p>
-            <a
-              href="#contact"
-              className="
-                inline-block border-[1.5px] border-white text-white
-                rounded-pill px-7 py-3 text-[15px] font-semibold
-                no-underline hover:bg-white/15 transition-colors duration-150
-                mt-2
-              "
-            >
-              Request a Free Estimate →
-            </a>
-          </div>
         </div>
       </div>
     </section>

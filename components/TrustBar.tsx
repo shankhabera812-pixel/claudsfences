@@ -41,7 +41,7 @@ export default function TrustBar() {
                 ${index === 4 ? 'col-span-2 md:col-span-3 lg:col-span-1 max-w-[50%] md:max-w-none mx-auto lg:mx-0' : ''}
               `}
             >
-              <item.Icon size={26} className="text-white" strokeWidth={1.5} />
+              <item.Icon size={26} className="text-accent" strokeWidth={1.5} />
               <p className="text-white text-[14px] font-medium">
                 {item.primary}
               </p>
