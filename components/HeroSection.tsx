@@ -1,13 +1,12 @@
 import Image from 'next/image';
-import { Star, ChevronDown } from 'lucide-react';
-import AccentButton from '@/components/ui/AccentButton';
-import HeroMicroForm from '@/components/HeroMicroForm';
+import { Award, Clock, Star, ChevronDown } from 'lucide-react';
+import EstimateForm from '@/components/EstimateForm';
 
 export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative w-full min-h-[100vh] lg:min-h-[85vh]"
+      className="relative w-full min-h-[100vh] lg:min-h-[85vh] lg:min-h-[auto]"
       aria-label="Hero — Professional fence installation in Shrewsbury MA"
     >
       {/* Layer 1 — Background Image */}
@@ -21,64 +20,72 @@ export default function HeroSection() {
           quality={85}
           sizes="100vw"
         />
-        {/* NOTE: hero-bg.jpg must be converted to WebP before deployment for optimal performance */}
       </div>
 
       {/* Layer 2 — Gradient Overlay */}
-      {/* Desktop: left-to-right gradient; Mobile: uniform overlay */}
-      <div
-        className="absolute inset-0 bg-[rgba(10,25,47,0.65)] md:bg-transparent"
-        style={{
-          backgroundImage:
-            'linear-gradient(to right, rgba(10,25,47,0.75) 0%, rgba(10,25,47,0.75) 50%, rgba(10,25,47,0.0) 100%)',
-        }}
-      />
-      {/* Mobile override via a separate div that only shows on small screens */}
-      <div className="absolute inset-0 bg-[rgba(10,25,47,0.65)] md:hidden" />
+      {/* Uniform overlay for better contrast since form is now on the right */}
+      <div className="absolute inset-0 bg-[rgba(10,25,47,0.75)]" />
 
       {/* Layer 3 — Content */}
-      <div className="relative z-10 max-w-screen-xl mx-auto px-6 pt-32 pb-20 flex flex-col min-h-[100vh] lg:min-h-[85vh] justify-center">
-        <div className="md:max-w-[55%] text-center md:text-left">
-          {/* H1 — Primary headline */}
-          <h1 className="text-[clamp(2.25rem,5vw,3.75rem)] font-bold text-white leading-[1.1] mb-5">
-            Fence Installation You Can Trust — Shrewsbury, MA
-          </h1>
+      <div className="relative z-10 max-w-screen-xl mx-auto px-6 pt-32 pb-20 flex flex-col justify-center min-h-[100vh] lg:min-h-[auto] lg:h-full lg:pt-32 lg:pb-32">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-8 items-center lg:items-center">
+          
+          {/* Left Column: Copy & Badges */}
+          <div className="flex-1 text-center lg:text-left w-full">
+            {/* H1 — Primary headline */}
+            <h1 className="text-[clamp(2.25rem,5vw,3.75rem)] font-bold text-white leading-[1.1] mb-5">
+              Fence Installation You Can Trust
+              <span className="block text-[clamp(1.25rem,3vw,1.75rem)] mt-2 font-semibold text-white/90">
+                Shrewsbury &amp; Central Massachusetts
+              </span>
+            </h1>
 
-          {/* Sub-headline */}
-          <p className="text-[16px] md:text-[20px] text-white font-normal mb-4">
-            Wood, vinyl, chain link, and aluminum fencing across Central Massachusetts — installed right, the first time.
-          </p>
+            {/* Sub-headline */}
+            <p className="text-[16px] md:text-[20px] text-white font-normal mb-8">
+              Wood, vinyl, chain link, and aluminum fencing across Central Massachusetts — installed right, the first time.
+            </p>
 
-          {/* Trust micro-line with star icons */}
-          <p className="text-[14px] text-white/80 mb-8 flex flex-wrap items-center justify-center md:justify-start gap-1">
-            <span aria-hidden="true" className="inline-flex gap-0.5 mr-1.5">
-              {[...Array(5)].map((_, i) => (
-                <Star
-                  key={i}
-                  size={13}
-                  fill="var(--color-accent)"
-                  color="var(--color-accent)"
+            {/* Trust Badges */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 md:gap-6">
+              
+              <div className="flex items-center gap-2">
+                <Award size={18} className="text-accent" />
+                <span className="text-white text-[13px] sm:text-[14px] font-medium">10 Years of Experience</span>
+              </div>
+              
+              <div className="hidden sm:block text-white/30">·</div>
+              
+              <div className="flex items-center gap-2 relative overflow-hidden group">
+                <Clock size={18} className="text-accent" />
+                <span className="text-white text-[13px] sm:text-[14px] font-medium relative z-10">
+                  24/7 Estimates
+                </span>
+                {/* Shimmer effect overlay */}
+                <div 
+                  className="absolute inset-0 z-20 pointer-events-none" 
+                  style={{
+                    backgroundImage: 'linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%)',
+                    backgroundSize: '200% 100%',
+                    animation: 'var(--animate-shimmer)'
+                  }} 
                 />
-              ))}
-            </span>
-            <span>
-              Licensed &amp; Insured · 5-Star Rated · Serving Worcester County Since 2020
-            </span>
-          </p>
+              </div>
+              
+              <div className="hidden sm:block text-white/30">·</div>
+              
+              <div className="flex items-center gap-2">
+                <Star size={18} className="text-accent" fill="currentColor" />
+                <span className="text-white text-[13px] sm:text-[14px] font-medium">5-Star Rated</span>
+              </div>
+            </div>
+          </div>
 
-          <HeroMicroForm />
+          {/* Right Column: Full Lead Form */}
+          <div className="w-full lg:w-[500px] xl:w-[540px] flex-shrink-0">
+            <EstimateForm variant="hero" />
+          </div>
+
         </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div
-        className="absolute bottom-6 left-1/2 -translate-x-1/2"
-        aria-hidden="true"
-      >
-        <ChevronDown
-          size={28}
-          className="text-white/50 animate-bounce-y"
-        />
       </div>
     </section>
   );

@@ -6,22 +6,22 @@ const services = [
   {
     Icon: LayoutPanelTop,
     title: 'Wood Fences',
-    desc: "We work with cedar, pressure-treated pine, and spruce \u2014 matching the material to your yard, your climate, and your budget. Privacy or picket, every wood fence we build is custom to your property. No pre-fab templates.",
+    desc: 'Cedar, pressure-treated pine, and spruce. Privacy or picket. Custom to your property.',
   },
   {
     Icon: Columns2,
     title: 'Vinyl Fences',
-    desc: 'Low-maintenance PVC in privacy, picket, and lattice profiles \u2014 it never needs painting or staining. We size and configure every vinyl fence to your specific property. If you want clean lines and zero upkeep, this is it.',
+    desc: 'Zero-maintenance PVC. Privacy, picket, lattice. Never needs paint.',
   },
   {
     Icon: Grid2X2,
     title: 'Chain Link Fences',
-    desc: 'Galvanized and vinyl-coated options for yards, pets, and commercial enclosures. Chain link is our most cost-effective install and one of the fastest \u2014 a practical choice built to hold up in New England weather for decades.',
+    desc: 'Galvanized or vinyl-coated. Most cost-effective. Fast install.',
   },
   {
     Icon: ShieldCheck,
     title: 'Aluminum Fences',
-    desc: "Ornamental aluminum for pool enclosures, front yards, and anywhere you want the elegance of wrought iron without the corrosion maintenance. We\u0027ll specify the right post spacing and profile for your property and local code.",
+    desc: 'Ornamental. Pool code compliant. Wrought-iron look, no corrosion.',
   },
 ];
 
@@ -34,9 +34,8 @@ export default function ServicesSection() {
           <SectionHeader
             variant="dark"
             align="center"
-            subCopy="From classic wood privacy fences to low-maintenance vinyl, we install, repair, and customize every fence type for residential and commercial properties across Central Massachusetts."
           >
-            What We Build &mdash; and How We Build It
+            What We Build
           </SectionHeader>
         </div>
 
