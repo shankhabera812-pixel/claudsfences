@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-react';
 import AccentButton from '@/components/ui/AccentButton';
 
 const navLinks = [
@@ -61,11 +61,12 @@ export default function NavBar() {
 
         {/* Right Group — always visible */}
         <div className="flex items-center gap-4">
-          {/* Phone — hidden on very small screens */}
+          {/* Phone — high visibility pill */}
           <a
             href="tel:+17743862977"
-            className="hidden sm:inline-block text-white text-[14px] hover:text-accent transition-colors duration-150"
+            className="hidden sm:flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white px-4 py-2 rounded-full text-[14px] font-medium transition-all duration-200 shadow-sm"
           >
+            <Phone size={16} className="text-accent" />
             (774) 386-2977
           </a>
 

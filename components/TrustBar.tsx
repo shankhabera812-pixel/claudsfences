@@ -24,7 +24,7 @@ const trustItems = [
   {
     Icon: Wrench,
     primary: '10+ Years Experience',
-    sub: 'Co-owners Claudinei & Raimundo',
+    sub: 'Every Fence Built by Claudinei or Raimundo',
   },
 ];
 

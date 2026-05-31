@@ -7,21 +7,25 @@ const services = [
     Icon: LayoutPanelTop,
     title: 'Wood Fences',
     desc: 'Cedar, pressure-treated pine, and spruce. Privacy or picket. Custom to your property.',
+    useCase: 'Best for: privacy, natural character, and properties where custom dimensions matter.',
   },
   {
     Icon: Columns2,
     title: 'Vinyl Fences',
     desc: 'Zero-maintenance PVC. Privacy, picket, lattice. Never needs paint.',
+    useCase: 'Best for: homeowners who want long-lasting clean lines with zero painting or staining.',
   },
   {
     Icon: Grid2X2,
     title: 'Chain Link Fences',
     desc: 'Galvanized or vinyl-coated. Most cost-effective. Fast install.',
+    useCase: 'Best for: pet containment, yard definition, and commercial enclosures where cost and durability come first.',
   },
   {
     Icon: ShieldCheck,
     title: 'Aluminum Fences',
     desc: 'Ornamental. Pool code compliant. Wrought-iron look, no corrosion.',
+    useCase: 'Best for: pool enclosures, front-yard aesthetics, and anywhere you need the elegance of wrought iron without the rust.',
   },
 ];
 
@@ -56,6 +60,9 @@ export default function ServicesSection() {
               </h3>
               <p className="text-[14px] text-muted leading-[1.65]">
                 {service.desc}
+              </p>
+              <p className="text-[13px] text-navy font-medium leading-[1.5] mt-1 italic">
+                {service.useCase}
               </p>
             </div>
           ))}

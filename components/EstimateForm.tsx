@@ -136,7 +136,7 @@ export default function EstimateForm({ variant }: EstimateFormProps) {
   const isHero = variant === 'hero';
 
   const cardClasses = isHero
-    ? 'bg-white rounded-form p-6 sm:p-8 w-full max-w-[600px] mx-auto shadow-[0_8px_32px_rgba(0,0,0,0.25)] border border-white/20'
+    ? 'bg-white rounded-form p-5 w-full max-w-[640px] mx-auto shadow-[0_8px_32px_rgba(0,0,0,0.25)] border border-white/20'
     : 'bg-white rounded-form p-8 sm:p-12 max-w-[600px] w-full mx-auto border border-white/10';
 
   const buttonText = isHero ? 'Get My Free Estimate' : 'Send My Free Estimate Request';
@@ -202,117 +202,123 @@ export default function EstimateForm({ variant }: EstimateFormProps) {
             </div>
           )}
 
-          {/* Field 1 — Name */}
-          <div className="mb-5">
-            <label
-              htmlFor={`${variant}-name`}
-              className="block text-[14px] font-medium text-bodytext mb-1.5"
-            >
-              Your Name
-            </label>
-            <input
-              type="text"
-              id={`${variant}-name`}
-              name="name"
-              placeholder="Jane Smith"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              aria-required="true"
-              aria-describedby={errors.name ? `${variant}-name-error` : undefined}
-              className={getInputClasses('name')}
-            />
-            {errors.name && (
-              <p id={`${variant}-name-error`} className="text-[12px] text-error mt-1">
-                {errors.name}
+          {/* Group 1: Name & Phone */}
+          <div className={isHero ? "grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4" : ""}>
+            {/* Field 1 — Name */}
+            <div className={!isHero ? "mb-5" : ""}>
+              <label
+                htmlFor={`${variant}-name`}
+                className="block text-[14px] font-medium text-bodytext mb-1.5"
+              >
+                Your Name
+              </label>
+              <input
+                type="text"
+                id={`${variant}-name`}
+                name="name"
+                placeholder="Jane Smith"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                aria-required="true"
+                aria-describedby={errors.name ? `${variant}-name-error` : undefined}
+                className={getInputClasses('name')}
+              />
+              {errors.name && (
+                <p id={`${variant}-name-error`} className="text-[12px] text-error mt-1">
+                  {errors.name}
+                </p>
+              )}
+            </div>
+
+            {/* Field 2 — Phone */}
+            <div className={!isHero ? "mb-5" : ""}>
+              <label
+                htmlFor={`${variant}-phone`}
+                className="block text-[14px] font-medium text-bodytext mb-1.5"
+              >
+                Phone Number
+              </label>
+              <input
+                type="tel"
+                id={`${variant}-phone`}
+                name="phone"
+                placeholder="(508) 555-0100"
+                value={formData.phone}
+                onChange={handleChange}
+                required
+                aria-required="true"
+                aria-describedby={
+                  errors.phone ? `${variant}-phone-error ${variant}-phone-hint` : `${variant}-phone-hint`
+                }
+                className={getInputClasses('phone')}
+              />
+              <p id={`${variant}-phone-hint`} className="text-[12px] text-muted mt-1">
+                We&apos;ll call or text.
               </p>
-            )}
+              {errors.phone && (
+                <p id={`${variant}-phone-error`} className="text-[12px] text-error mt-1">
+                  {errors.phone}
+                </p>
+              )}
+            </div>
           </div>
 
-          {/* Field 2 — Phone */}
-          <div className="mb-5">
-            <label
-              htmlFor={`${variant}-phone`}
-              className="block text-[14px] font-medium text-bodytext mb-1.5"
-            >
-              Phone Number
-            </label>
-            <input
-              type="tel"
-              id={`${variant}-phone`}
-              name="phone"
-              placeholder="(508) 555-0100"
-              value={formData.phone}
-              onChange={handleChange}
-              required
-              aria-required="true"
-              aria-describedby={
-                errors.phone ? `${variant}-phone-error ${variant}-phone-hint` : `${variant}-phone-hint`
-              }
-              className={getInputClasses('phone')}
-            />
-            <p id={`${variant}-phone-hint`} className="text-[12px] text-muted mt-1">
-              We&apos;ll call or text — your preference.
-            </p>
-            {errors.phone && (
-              <p id={`${variant}-phone-error`} className="text-[12px] text-error mt-1">
-                {errors.phone}
-              </p>
-            )}
-          </div>
+          {/* Group 2: Email & Address */}
+          <div className={isHero ? "grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4" : ""}>
+            {/* Field 3 — Email */}
+            <div className={!isHero ? "mb-5" : ""}>
+              <label
+                htmlFor={`${variant}-email`}
+                className="block text-[14px] font-medium text-bodytext mb-1.5"
+              >
+                Email Address
+              </label>
+              <input
+                type="email"
+                id={`${variant}-email`}
+                name="email"
+                placeholder="jane@email.com"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                aria-required="true"
+                aria-describedby={errors.email ? `${variant}-email-error` : undefined}
+                className={getInputClasses('email')}
+              />
+              {errors.email && (
+                <p id={`${variant}-email-error`} className="text-[12px] text-error mt-1">
+                  {errors.email}
+                </p>
+              )}
+            </div>
 
-          {/* Field 3 — Email */}
-          <div className="mb-5">
-            <label
-              htmlFor={`${variant}-email`}
-              className="block text-[14px] font-medium text-bodytext mb-1.5"
-            >
-              Email Address
-            </label>
-            <input
-              type="email"
-              id={`${variant}-email`}
-              name="email"
-              placeholder="jane@email.com"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              aria-required="true"
-              aria-describedby={errors.email ? `${variant}-email-error` : undefined}
-              className={getInputClasses('email')}
-            />
-            {errors.email && (
-              <p id={`${variant}-email-error`} className="text-[12px] text-error mt-1">
-                {errors.email}
-              </p>
-            )}
-          </div>
-
-          {/* Field 4 — Address */}
-          <div className="mb-5">
-            <label
-              htmlFor={`${variant}-address`}
-              className="block text-[14px] font-medium text-bodytext mb-1.5"
-            >
-              Property Address or Town
-            </label>
-            <input
-              type="text"
-              id={`${variant}-address`}
-              name="address"
-              placeholder="123 Main St, Shrewsbury, MA"
-              value={formData.address}
-              onChange={handleChange}
-              required
-              aria-required="true"
-              aria-describedby={errors.address ? `${variant}-address-error` : undefined}
-              className={getInputClasses('address')}
-            />
-            {errors.address && (
-              <p id={`${variant}-address-error`} className="text-[12px] text-error mt-1">
-                {errors.address}
-              </p>
-            )}
+            {/* Field 4 — Address */}
+            <div className={!isHero ? "mb-5" : ""}>
+              <label
+                htmlFor={`${variant}-address`}
+                className="block text-[14px] font-medium text-bodytext mb-1.5"
+              >
+                Property Address or Town
+              </label>
+              <input
+                type="text"
+                id={`${variant}-address`}
+                name="address"
+                placeholder="123 Main St, Shrewsbury, MA"
+                value={formData.address}
+                onChange={handleChange}
+                required
+                aria-required="true"
+                aria-describedby={errors.address ? `${variant}-address-error` : undefined}
+                className={getInputClasses('address')}
+              />
+              {errors.address && (
+                <p id={`${variant}-address-error`} className="text-[12px] text-error mt-1">
+                  {errors.address}
+                </p>
+              )}
+            </div>
           </div>
 
           {/* Field 5 — Fence Type (optional) */}

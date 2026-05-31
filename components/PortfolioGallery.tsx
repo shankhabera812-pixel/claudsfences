@@ -28,7 +28,7 @@ export default function PortfolioGallery() {
           <SectionHeader
             variant="light"
             align="center"
-            subCopy="Every photo below is a real project completed by our team. We've installed fences in Shrewsbury, Worcester, Framingham, Northborough, Hudson, Leominster, and 15+ other towns across the region."
+            subCopy="Every photo below is a real project completed by our team. If you're in Central Massachusetts, we've probably worked in your town — Shrewsbury, Worcester, Framingham, Northborough, Hudson, Leominster, and 10 more."
             maxWidth="640px"
           >
             Projects Across Shrewsbury &amp; Central Massachusetts
@@ -90,6 +90,11 @@ export default function PortfolioGallery() {
           ))}
 
         </div>
+
+        {/* Soft connector sentence */}
+        <p className="text-center text-[18px] text-white/80 font-medium mt-12">
+          Want to see what our customers say about working with us?
+        </p>
       </div>
     </section>
   );
