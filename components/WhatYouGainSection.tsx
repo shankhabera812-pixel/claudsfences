@@ -8,38 +8,43 @@ import SectionHeader from '@/components/ui/SectionHeader';
 const outcomes = [
   {
     Icon: Dog,
-    title: 'Pets run safely',
+    title: 'The back door is just a door again.',
     desc: (
-      <>Open the back door and walk away. <span className="highlight-phrase solution-highlight" data-phrase="solution-1">no holding your breath</span>.</>
+      <>Open the back door and walk away. no holding your breath.</>
     ),
+    resolution: 'Open the door. Walk away.'
   },
   {
     Icon: Baby,
-    title: 'Kids play freely',
+    title: 'Watch them. Don\'t monitor them.',
     desc: (
-      <>A real boundary so you can stop watching the street and <span className="highlight-phrase solution-highlight" data-phrase="solution-2">just watch them laugh</span>.</>
+      <>A real boundary so you can stop watching the street and just watch them laugh.</>
     ),
+    resolution: 'Just watch them.'
   },
   {
     Icon: EyeOff,
-    title: 'Total privacy',
+    title: 'Outside feels like inside.',
     desc: (
-      <>Step outside with a drink, sit down, and actually decompress. <span className="highlight-phrase solution-highlight" data-phrase="solution-3">Your yard, not a stage</span>.</>
+      <>Step outside with a drink, sit down, and actually decompress. Your yard, not a stage.</>
     ),
+    resolution: 'Your yard, not a stage.'
   },
   {
     Icon: Waves,
-    title: 'Pool compliance',
+    title: 'Pool Compliance',
     desc: (
-      <>Self-closing gates and heavy-gauge aluminum that <span className="highlight-phrase solution-highlight" data-phrase="solution-4">keep kids safe</span> and keep your permit clean.</>
+      <>Self-closing gates, heavy-gauge aluminum, Massachusetts pool code covered. Safe yard, clean permit, nothing outstanding.</>
     ),
+    resolution: 'Safe yard. Clean permit. Nothing outstanding.'
   },
   {
     Icon: Map,
-    title: 'Clear boundaries',
+    title: 'The property line is finally settled.',
     desc: (
-      <>No more neighborly disputes or 'I thought the line was over there.' <span className="highlight-phrase solution-highlight" data-phrase="solution-5">Your boundary, marked, respected, done</span>.</>
+      <>No more neighborly disputes or 'I thought the line was over there.' Your boundary, marked, respected, done.</>
     ),
+    resolution: 'Your boundary, marked, respected, done.'
   },
 ];
 
@@ -112,6 +117,16 @@ export default function WhatYouGainSection() {
               }, { once: true });
             }, 200);
           }
+
+          const resLine = el.querySelector('.resolution-line');
+          if (resLine) {
+            setTimeout(() => {
+              resLine.classList.add('nudge-once');
+              resLine.addEventListener('animationend', () => {
+                resLine.classList.remove('nudge-once');
+              }, { once: true });
+            }, 600);
+          }
         }
 
         if (type === 'highlight') {
@@ -155,7 +170,7 @@ export default function WhatYouGainSection() {
   }, []);
 
   return (
-    <section id="what-you-gain" className="solution-section bg-white pb-20 lg:pb-28 relative overflow-hidden">
+    <section id="what-you-gain" className="solution-section bg-white pb-12 lg:pb-16 relative overflow-hidden">
 
       {/* Transition Bridge from Navy to White */}
       <div className="w-full h-[100px] bg-gradient-to-b from-navy to-white relative flex items-center justify-center mb-10">
@@ -167,13 +182,13 @@ export default function WhatYouGainSection() {
         <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-12 xl:gap-14">
           
           {/* Left: Emotional Image Anchor */}
-          <div className="w-full lg:w-1/2 relative p-1">
-            <div className="solution-image-wrap solution-corner aspect-[4/3] w-full max-w-[540px] mx-auto relative rounded-2xl overflow-hidden shadow-lg border-[6px] border-white group">
+          <div className="w-full lg:w-1/2 relative p-1 mb-10 lg:mb-0">
+            <div className="solution-image-wrap aspect-[5/4] w-full max-w-[540px] mx-auto relative rounded-2xl overflow-hidden shadow-lg border-[6px] border-white group">
               <Image
                 src="/images/solution-family-grill.jpg"
                 alt="Family grilling in a securely fenced backyard"
                 fill
-                className="object-cover group-hover:scale-105 transition-transform duration-1000 ease-out"
+                className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </div>
@@ -199,18 +214,19 @@ export default function WhatYouGainSection() {
               {outcomes.map((item, idx) => (
                 <div 
                   key={idx} 
-                  className="benefit-item opacity-0 -translate-x-4 transition-all duration-500 ease-out flex items-center gap-5 p-4 py-5 hover:bg-white border-t border-accent/15 group cursor-default"
+                  className="benefit-item opacity-0 -translate-x-4 transition-all duration-500 ease-out flex items-start gap-4 p-2 py-3 lg:py-3.5 hover:bg-white group cursor-default"
                 >
-                  <div className="icon-wrapper w-12 h-12 rounded-full bg-accent/10 text-accent flex items-center justify-center flex-shrink-0 transition-transform duration-300">
-                    <item.Icon size={22} strokeWidth={1.5} />
+                  <div className="transformation-icon-container icon-wrapper w-10 h-10 mt-1 rounded-full text-accent flex items-center justify-center flex-shrink-0 transition-transform duration-300">
+                    <item.Icon size={20} strokeWidth={1.5} />
                   </div>
-                  <div>
-                    <h4 className="text-forest text-[17.5px] font-semibold mb-0.5">
+                  <div className="flex-1">
+                    <h4 className="text-forest text-[17px] font-semibold mb-0.5">
                       {item.title}
                     </h4>
-                    <p className="text-muted text-[15.5px] leading-snug">
+                    <p className="text-muted text-[15px] leading-snug">
                       {item.desc}
                     </p>
+                    <span className="resolution-line">{item.resolution}</span>
                   </div>
                 </div>
               ))}

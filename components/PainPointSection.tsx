@@ -144,8 +144,11 @@ export default function PainPointSection() {
 
   return (
     <section id="pain-points" className="problem-section bg-navy py-24 lg:py-32 relative overflow-hidden">
-      {/* Background ambient glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[800px] h-[400px] bg-accent/20 blur-[140px] pointer-events-none rounded-full" />
+      {/* Background ambient glow (optimized) */}
+      <div 
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[800px] h-[400px] pointer-events-none rounded-full" 
+        style={{ background: 'radial-gradient(circle, rgba(196,135,58,0.20) 0%, rgba(196,135,58,0) 70%)' }}
+      />
       
       <div className="max-w-screen-xl mx-auto px-6 relative z-10">
         <div className="text-center mb-16 max-w-3xl mx-auto">
@@ -165,7 +168,7 @@ export default function PainPointSection() {
             <div 
               key={idx}
               className={`
-                card group relative backdrop-blur-md flex flex-col gap-5
+                card group relative flex flex-col gap-5
                 rounded-[16px]
                 ${point.colSpan}
                 ${point.isWide ? 'px-8 sm:px-10 py-10 sm:py-12' : 'p-8 sm:p-10'}

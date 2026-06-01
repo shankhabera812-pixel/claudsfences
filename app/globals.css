@@ -17,6 +17,7 @@
   /* Restored missing tokens */
   --color-navy: #0F172A;
   --color-accent: #C4873A;
+  --color-accent-rgb: 196, 135, 58;
   --color-accent-hover: #A86F2F;
   
   /* Danger / Warning Aesthetics */
@@ -240,17 +241,56 @@ html {
 /* Image Reveal Classes */
 .solution-image-wrap {
   opacity: 0;
-  transform: scale(0.97);
-  clip-path: inset(6% 0 0 0);
-  transition: opacity 0.65s ease, transform 0.65s ease, clip-path 0.65s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.65s ease;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 .solution-image-wrap.is-visible {
   opacity: 1;
-  transform: scale(1);
-  clip-path: inset(0% 0 0 0);
+  transform: translateY(0);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), 0 0 0 2px rgba(232, 160, 48, 0.15);
 }
+
+/* ── TRANSFORMATION SECTION (WHAT YOU GAIN) ── */
+.section-threshold {
+  width: 40px;
+  height: 2px;
+  background-color: var(--color-accent);
+  margin-bottom: 20px;
+}
+
+.resolution-line {
+  color: var(--color-accent);
+  font-size: 13px;
+  font-weight: 600;
+  font-style: normal;
+  opacity: 1;
+  margin-top: 10px;
+  display: block;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.benefit-item:hover .resolution-line {
+  transform: translateX(4px);
+  text-shadow: 0 0 12px rgba(var(--color-accent-rgb), 0.4);
+}
+
+@keyframes nudgeOnce {
+  0% { transform: translateX(0); text-shadow: none; }
+  50% { transform: translateX(4px); text-shadow: 0 0 12px rgba(var(--color-accent-rgb), 0.4); }
+  100% { transform: translateX(0); text-shadow: none; }
+}
+
+.nudge-once {
+  animation: nudgeOnce 1s ease;
+}
+
+.transformation-icon-container {
+  background-color: rgba(var(--color-accent-rgb), 0.10) !important;
+}
+
+
+
 
 /* Corner Frames */
 .solution-corner::before,
@@ -339,3 +379,19 @@ html {
 .site-logo--footer {
   height: 80px;
 }
+
+/* ── HERO SECTION ANIMATIONS ── */
+@keyframes heroFadeUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.hero-animate {
+  opacity: 0;
+  animation: heroFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.delay-150 { animation-delay: 150ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-450 { animation-delay: 450ms; }
+.delay-600 { animation-delay: 600ms; }
