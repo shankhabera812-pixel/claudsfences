@@ -24,6 +24,7 @@ interface ParsedPortfolioItem {
 
 export default function PortfolioGallery() {
   const [activeFilter, setActiveFilter] = useState<'All' | 'Vinyl' | 'Wood'>('All');
+  const [visibleCount, setVisibleCount] = useState<number>(6);
 
   // Parse data
   const parsedData: ParsedPortfolioItem[] = useMemo(() => {
@@ -79,7 +80,7 @@ export default function PortfolioGallery() {
     });
 
     return () => observer.disconnect();
-  }, [activeFilter]); // Re-run when filter changes to animate new cards
+  }, [activeFilter, visibleCount]); // Re-run when filter changes to animate new cards
 
   return (
     <section id="portfolio" className="bg-white py-24 lg:py-32">
@@ -99,7 +100,7 @@ export default function PortfolioGallery() {
         <div className="flex flex-wrap justify-center gap-3 mb-12">
           {/* All */}
           <button
-            onClick={() => setActiveFilter('All')}
+            onClick={() => { setActiveFilter('All'); setVisibleCount(6); }}
             className={`rounded-full px-6 py-2.5 text-[14px] font-medium transition-all duration-250 flex items-center gap-2 ${
               activeFilter === 'All'
                 ? 'bg-[#B8781A] text-white border-transparent'
@@ -111,7 +112,7 @@ export default function PortfolioGallery() {
 
           {/* Vinyl */}
           <button
-            onClick={() => setActiveFilter('Vinyl')}
+            onClick={() => { setActiveFilter('Vinyl'); setVisibleCount(6); }}
             className={`rounded-full px-6 py-2.5 text-[14px] font-medium transition-all duration-250 flex items-center gap-2 ${
               activeFilter === 'Vinyl'
                 ? 'bg-[#B8781A] text-white border-transparent'
@@ -123,7 +124,7 @@ export default function PortfolioGallery() {
 
           {/* Wood */}
           <button
-            onClick={() => setActiveFilter('Wood')}
+            onClick={() => { setActiveFilter('Wood'); setVisibleCount(6); }}
             className={`rounded-full px-6 py-2.5 text-[14px] font-medium transition-all duration-250 flex items-center gap-2 ${
               activeFilter === 'Wood'
                 ? 'bg-[#B8781A] text-white border-transparent'
@@ -136,7 +137,7 @@ export default function PortfolioGallery() {
 
         {/* Gallery Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[12px]">
-          {displayedItems.map((item, index) => (
+          {displayedItems.slice(0, visibleCount).map((item, index) => (
             <div 
               key={`${item.id}-${activeFilter}`} 
               className="gallery-reveal opacity-0 translate-y-[20px] [&.is-visible]:opacity-100 [&.is-visible]:translate-y-0 transition-all duration-[400ms] ease-out"
@@ -192,6 +193,18 @@ export default function PortfolioGallery() {
             </div>
           ))}
         </div>
+
+        {/* Load More Button */}
+        {visibleCount < displayedItems.length && (
+          <div className="mt-10 flex justify-center">
+            <button 
+              onClick={() => setVisibleCount(prev => prev + 6)}
+              className="rounded-full px-6 py-2.5 text-[14px] font-medium transition-all duration-250 bg-forest/5 text-forest border border-forest/10 hover:bg-forest/10 hover:shadow-sm flex items-center gap-2"
+            >
+              Load More Projects
+            </button>
+          </div>
+        )}
 
         {/* Section CTA */}
         <div className="mt-16 text-center">

@@ -53,6 +53,7 @@ export default function EstimateForm({ variant }: EstimateFormProps) {
     fenceType: '',
     notes: '',
   });
+  const [contactPreference, setContactPreference] = useState<'call' | 'text'>('call');
   const [errors, setErrors] = useState<FormErrors>({});
   const [status, setStatus] = useState<FormStatus>('idle');
   const successRef = useRef<HTMLHeadingElement>(null);
@@ -101,10 +102,12 @@ export default function EstimateForm({ variant }: EstimateFormProps) {
       ? {
           name: formData.name,
           phone: formData.phone,
+          contactPreference: contactPreference === 'call' ? 'Call' : 'Text',
           _source: 'Hero short form',
         }
       : {
           ...formData,
+          contactPreference: contactPreference === 'call' ? 'Call' : 'Text',
           _source: 'Final detailed form',
         };
 
@@ -250,14 +253,9 @@ export default function EstimateForm({ variant }: EstimateFormProps) {
                 onChange={handleChange}
                 required
                 aria-required="true"
-                aria-describedby={
-                  errors.phone ? `${variant}-phone-error ${variant}-phone-hint` : `${variant}-phone-hint`
-                }
+                aria-describedby={errors.phone ? `${variant}-phone-error` : undefined}
                 className={getInputClasses('phone')}
               />
-              <p id={`${variant}-phone-hint`} className="text-[12px] text-muted mt-1">
-                We'll call or text - your preference.
-              </p>
               {errors.phone && (
                 <p id={`${variant}-phone-error`} className="text-[12px] text-error mt-1">
                   {errors.phone}
@@ -376,6 +374,26 @@ export default function EstimateForm({ variant }: EstimateFormProps) {
               </div>
             </>
           )}
+
+          {/* Contact Preference Toggle */}
+          <div className="flex justify-center mb-5">
+            <div className="inline-flex bg-forest/5 p-1 rounded-full border border-forest/10 items-center">
+              <button
+                type="button"
+                onClick={() => setContactPreference('call')}
+                className={`px-4 py-1.5 text-[13px] rounded-full transition-all duration-200 ${contactPreference === 'call' ? 'bg-white shadow-[0_1px_2px_rgba(0,0,0,0.05)] text-forest font-medium' : 'text-muted hover:text-forest'}`}
+              >
+                Call me
+              </button>
+              <button
+                type="button"
+                onClick={() => setContactPreference('text')}
+                className={`px-4 py-1.5 text-[13px] rounded-full transition-all duration-200 ${contactPreference === 'text' ? 'bg-white shadow-[0_1px_2px_rgba(0,0,0,0.05)] text-forest font-medium' : 'text-muted hover:text-forest'}`}
+              >
+                Text me
+              </button>
+            </div>
+          </div>
 
           {/* Privacy Micro-copy */}
           <div className="flex items-center justify-center gap-1.5 mt-4 mb-4">

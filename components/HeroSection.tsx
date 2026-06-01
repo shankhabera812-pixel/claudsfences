@@ -87,7 +87,7 @@ export default function HeroSection() {
             <EstimateForm variant="hero" />
             <div className="mt-4 text-center">
               <p className="text-offwhite/90 text-[14px] font-medium drop-shadow-sm">
-                Prefer to call? <a href="tel:+17743862977" className="font-bold underline hover:text-cedar drop-shadow-md">(774) 386-2977</a><br className="hidden sm:block" />
+                Prefer to call? <a href="tel:+17743862977" className="font-bold underline hover:text-cedar drop-shadow-md">(774) 386-2977</a> <br className="hidden sm:block" />
                 Claudinei or Raimundo answer directly.
               </p>
             </div>

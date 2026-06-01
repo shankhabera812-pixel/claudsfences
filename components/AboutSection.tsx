@@ -73,18 +73,23 @@ export default function AboutSection() {
             </p>
 
             {/* Promise Line */}
-            <p className="font-sans font-medium text-white text-[20px] sm:text-[22px] mt-4 leading-[1.6] tracking-tight border-t border-white/10 pt-8 w-full">
-              We strive to bring the same care and safety we give our own families to yours. That's a promise we take seriously.
-            </p>
+            <div className="mt-6 pt-8 border-t border-white/10 w-full flex flex-col items-center relative">
+              <p className="font-sans font-medium text-white/95 text-[19px] sm:text-[21px] leading-[1.6] tracking-tight italic relative px-5 text-center">
+                <span className="text-accent/40 text-3xl absolute -top-1 left-0 leading-none font-serif">"</span>
+                We strive to bring the same care and safety we give our own families to yours. That's a promise we take seriously.
+                <span className="text-accent/40 text-3xl absolute -bottom-3 right-0 leading-none font-serif">"</span>
+              </p>
+              <div className="w-8 h-[1.5px] bg-accent/50 mt-8 rounded-full"></div>
+            </div>
           </div>
 
           {/* Trust Stats Bar */}
-          <div className="mt-16 w-full flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 text-cedar font-bold text-[14px] tracking-wider uppercase font-sans opacity-0 transition-all duration-1000 delay-700 translate-y-4 group-[.is-visible]:opacity-100 group-[.is-visible]:translate-y-0">
-            <div className="text-center">200+ FENCES INSTALLED</div>
-            <div className="hidden md:block w-[1px] h-4 bg-cedar/30"></div>
-            <div className="text-center">0 SUBCONTRACTORS, EVER</div>
-            <div className="hidden md:block w-[1px] h-4 bg-cedar/30"></div>
-            <div className="text-center">100% OWNER-BUILT</div>
+          <div className="mt-16 w-full flex flex-col md:flex-row justify-center items-center gap-5 md:gap-8 text-cedar font-bold tracking-wider uppercase font-sans opacity-0 transition-all duration-1000 delay-700 translate-y-4 group-[.is-visible]:opacity-100 group-[.is-visible]:translate-y-0">
+            <div className="text-center"><span className="text-[17px]">200+</span> <span className="text-[13px] opacity-80">FENCES INSTALLED</span></div>
+            <div className="w-12 h-[1px] md:w-[1px] md:h-4 bg-cedar/30"></div>
+            <div className="text-center"><span className="text-[17px]">0</span> <span className="text-[13px] opacity-80">SUBCONTRACTORS, EVER</span></div>
+            <div className="w-12 h-[1px] md:w-[1px] md:h-4 bg-cedar/30"></div>
+            <div className="text-center"><span className="text-[17px]">100%</span> <span className="text-[13px] opacity-80">OWNER-BUILT</span></div>
           </div>
 
           {/* Personal CTA Button */}
