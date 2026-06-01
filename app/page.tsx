@@ -1,6 +1,5 @@
 import NavBar from '@/components/NavBar';
 import HeroSection from '@/components/HeroSection';
-import TrustBar from '@/components/TrustBar';
 import PainPointSection from '@/components/PainPointSection';
 import WhatYouGainSection from '@/components/WhatYouGainSection';
 import AboutSection from '@/components/AboutSection';
@@ -18,13 +17,14 @@ export default function Home() {
       <NavBar />
       <main>
         <HeroSection />
-        <TrustBar />
         <PainPointSection />
         <WhatYouGainSection />
         <AboutSection />
-        <ServicesSection />
+        <div className="section-divider" />
         <PortfolioGallery />
+        <div className="section-divider" />
         <TestimonialsSection />
+        <ServicesSection />
         <FAQSection />
         <LeadCaptureForm />
         <ContactFooter />

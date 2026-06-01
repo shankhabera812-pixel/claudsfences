@@ -1,19 +1,25 @@
 import type { Metadata } from "next";
-import { Outfit } from "next/font/google";
+import { Lora, Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
-const outfit = Outfit({
+const lora = Lora({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["600", "700"],
   display: "swap",
-  variable: "--font-outfit",
+  variable: "--font-serif",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-sans",
 });
 
 export const metadata: Metadata = {
-  title: "Claud's Fences | Professional Fence Installation in Shrewsbury, MA",
+  title: "Claud's Fences | Owner-Built Fence Installation in Central MA",
   description:
-    "Claud's Fences installs wood, vinyl, chain link, and aluminum fences across Shrewsbury, Worcester, Framingham, and 20+ Central MA towns. Free estimates available 24/7.",
+    "Claudinei and Raimundo install wood, vinyl, chain link, and aluminum fences across Shrewsbury, Worcester, Framingham, and 20+ Central MA towns. 0 subcontractors ever.",
   keywords: [
     "fence installation Shrewsbury MA",
     "vinyl fence Worcester County",
@@ -22,9 +28,9 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title:
-      "Claud's Fences | Professional Fence Installation in Shrewsbury, MA",
+      "Claud's Fences | Owner-Built Fence Installation in Central MA",
     description:
-      "Claud's Fences installs wood, vinyl, chain link, and aluminum fences across Shrewsbury, Worcester, Framingham, and 20+ Central MA towns. Free estimates available 24/7.",
+      "Claudinei and Raimundo install wood, vinyl, chain link, and aluminum fences across Shrewsbury, Worcester, Framingham, and 20+ Central MA towns. 0 subcontractors ever.",
     type: "website",
     locale: "en_US",
   },
@@ -78,11 +84,11 @@ const jsonLd = {
     "Hudson",
     "Leominster",
     "Fitchburg",
-    "Milbury",
+    "Millbury",
     "Hopkinton",
     "Clinton",
   ],
-  sameAs: [],
+  sameAs: ["https://google.com"],
 };
 
 export default function RootLayout({
@@ -91,14 +97,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${outfit.variable} antialiased`}>
+    <html lang="en" className={`${lora.variable} ${inter.variable} antialiased`}>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-full flex flex-col font-sans">
+      <body className="min-h-full flex flex-col font-sans text-ink bg-offwhite">
         {children}
 
         {/* TODO: Replace with real GA4 Measurement ID */}

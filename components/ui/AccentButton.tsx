@@ -9,15 +9,8 @@ interface AccentButtonProps {
   type?: 'button' | 'submit';
   disabled?: boolean;
   loading?: boolean;
-  rounded?: 'pill' | 'btn';
   className?: string;
 }
-
-/* 
-  Accessibility note: White (#FFFFFF) on Orange (#FF6B00) yields ~3.11:1 contrast.
-  This passes WCAG AA for large text and UI components. The font-weight 700 and 
-  large font-size used on all CTA buttons ensure readability in practice.
-*/
 
 const sizeClasses = {
   sm: 'h-[40px] px-5 text-[14px]',
@@ -33,19 +26,18 @@ export default function AccentButton({
   type = 'button',
   disabled = false,
   loading = false,
-  rounded = 'btn',
   className = '',
 }: AccentButtonProps) {
   const isDisabled = disabled || loading;
 
   const baseClasses = `
     inline-flex items-center justify-center gap-2
-    bg-accent hover:bg-accent-hover
-    text-white font-bold tracking-[0.03em]
-    ${rounded === 'pill' ? 'rounded-pill' : 'rounded-btn'}
+    bg-cedar hover:bg-cedar-hover
+    text-forest font-bold tracking-[0.03em]
+    rounded-btn
     transition-colors duration-150 ease-in-out
     active:scale-[0.98]
-    focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2
+    focus-visible:outline-2 focus-visible:outline-cedar focus-visible:outline-offset-2
     cursor-pointer border-none
     ${sizeClasses[size]}
     ${isDisabled ? 'opacity-60 cursor-not-allowed pointer-events-none' : ''}

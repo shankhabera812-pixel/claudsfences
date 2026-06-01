@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function ContactFooter() {
   return (
     <footer className="bg-navy border-t border-white/10 pt-10 pb-8">
@@ -6,9 +8,13 @@ export default function ContactFooter() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-8">
           {/* Left Column */}
           <div>
-            <p className="text-white text-[18px] font-bold mb-3">
-              Claud&apos;s Fences
-            </p>
+            <Image 
+              src="/images/claudlogo.png" 
+              alt="Claud's Fences" 
+              width={300} 
+              height={80} 
+              className="site-logo site-logo--footer mb-4 w-auto h-[80px]" 
+            />
             <p className="text-white/65 text-[14px] mb-1">Shrewsbury, MA</p>
             <a
               href="tel:+17743862977"
@@ -29,7 +35,7 @@ export default function ContactFooter() {
             {/* Footer Nav Links */}
             <div className="flex flex-wrap gap-x-6 gap-y-2 mb-4 md:justify-end">
               <a
-                href="#trust"
+                href="#why-us"
                 className="text-white text-[14px] no-underline hover:text-accent transition-colors duration-150"
               >
                 About

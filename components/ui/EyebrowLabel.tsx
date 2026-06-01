@@ -13,7 +13,7 @@ export default function EyebrowLabel({
     <span
       className={`
         block text-[12px] font-medium tracking-[0.08em] uppercase mb-2
-        ${variant === 'dark' ? 'text-muted' : 'text-white/65'}
+        ${variant === 'dark' ? 'text-fern' : 'text-offwhite/80'}
       `}
     >
       {children}

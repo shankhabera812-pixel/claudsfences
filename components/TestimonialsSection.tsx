@@ -1,4 +1,6 @@
+import React from 'react';
 import { Star } from 'lucide-react';
+import SectionHeader from '@/components/ui/SectionHeader';
 
 const placeholderReviews = [
   {
@@ -7,7 +9,7 @@ const placeholderReviews = [
     time: "2 weeks ago",
     text: "Claudinei and Raimundo are the real deal. They showed up when they said they would, gave a very fair quote, and the vinyl fence looks incredible. It completely changed our backyard. Highly recommend them if you want people who actually care about the work.",
     initial: "M",
-    bgColor: "bg-blue-500"
+    bgColor: "bg-forest"
   },
   {
     id: 2,
@@ -15,7 +17,7 @@ const placeholderReviews = [
     time: "1 month ago",
     text: "We needed a fence fast before getting a new puppy. Claud's Fences was responsive and professional. They didn't leave until everything was perfect and the site was totally clean. No subcontractors either, which we loved.",
     initial: "S",
-    bgColor: "bg-purple-500"
+    bgColor: "bg-cedar"
   },
   {
     id: 3,
@@ -23,7 +25,7 @@ const placeholderReviews = [
     time: "3 months ago",
     text: "After dealing with a few flaky contractors, finding Claud's was a breath of fresh air. They installed a cedar privacy fence for us. The craftsmanship is excellent and they were incredibly respectful of our landscaping.",
     initial: "D",
-    bgColor: "bg-green-500"
+    bgColor: "bg-forest"
   }
 ];
 
@@ -31,7 +33,7 @@ const placeholderReviews = [
 const Stars = () => (
   <div className="flex gap-0.5 mb-2">
     {[...Array(5)].map((_, i) => (
-      <Star key={i} size={16} fill="#FBBC04" stroke="#FBBC04" />
+      <Star key={i} size={16} fill="#C4873A" stroke="#C4873A" />
     ))}
   </div>
 );
@@ -48,18 +50,18 @@ const GoogleIcon = () => (
 
 export default function TestimonialsSection() {
   return (
-    <section id="testimonials" className="bg-offwhite py-20 lg:py-24 border-y border-border-light relative overflow-hidden">
+    <section id="testimonials" className="bg-white py-20 lg:py-28 relative overflow-hidden border-t border-border-light">
       <div className="max-w-screen-xl mx-auto px-6 relative z-10">
         
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-navy text-[clamp(2rem,4vw,2.75rem)] font-bold mb-4 tracking-tight">
-            What Our Customers Say
-          </h2>
-          <div className="flex items-center justify-center gap-2 mb-2">
-            <span className="text-[18px] font-medium text-navy">Excellent</span>
-            <Stars />
-            <span className="text-[16px] text-muted">Based on 24 reviews</span>
-          </div>
+        <div className="mb-16">
+          <SectionHeader
+            variant="dark"
+            align="center"
+            subCopy="Dozens of 5-star reviews from homeowners across Central Massachusetts who hired us to protect their property."
+            maxWidth="640px"
+          >
+            We let our work speak for itself.
+          </SectionHeader>
         </div>
         
         {/* Review Cards Grid */}
@@ -67,15 +69,15 @@ export default function TestimonialsSection() {
           {placeholderReviews.map((review) => (
             <div 
               key={review.id} 
-              className="bg-white rounded-card p-6 border border-border-light shadow-sm hover-card-lift flex flex-col"
+              className="bg-white rounded-card p-6 border border-border-light shadow-sm flex flex-col"
             >
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-3">
-                  <div className={`w-10 h-10 rounded-full flex items-center justify-center text-white font-semibold ${review.bgColor}`}>
+                  <div className={`w-10 h-10 rounded-full flex items-center justify-center text-offwhite font-semibold ${review.bgColor}`}>
                     {review.initial}
                   </div>
                   <div>
-                    <h4 className="text-navy text-[15px] font-semibold">{review.name}</h4>
+                    <h4 className="text-forest text-[15px] font-semibold">{review.name}</h4>
                     <p className="text-muted text-[13px]">{review.time}</p>
                   </div>
                 </div>
@@ -94,7 +96,7 @@ export default function TestimonialsSection() {
             href="https://google.com" // TODO: Replace with actual Google Business profile link
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center text-[16px] font-medium text-navy hover:text-accent transition-colors duration-150 border-b border-navy hover:border-accent pb-0.5"
+            className="inline-flex items-center text-[16px] font-medium text-forest hover:text-cedar transition-colors duration-150 border-b border-forest hover:border-cedar pb-0.5"
           >
             See all our reviews on Google →
           </a>
